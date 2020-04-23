@@ -1,4 +1,4 @@
-package com.dpaula.minhasfinancas.exception;
+package com.dpaula.rh.exception;
 
 public class RegraNegocioException extends RuntimeException {
 	
