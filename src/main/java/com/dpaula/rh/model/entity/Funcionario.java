@@ -3,7 +3,7 @@ package com.dpaula.rh.model.entity;
 import java.math.BigDecimal;
 import java.util.Date;
 
-import javax.persistence.Column; 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -32,16 +32,16 @@ public class Funcionario {
 	@Column(name = "DATA_NASCIMENTO_FUNCIONARIO", nullable = false)
 	private Date dataNascimento;
 	
-	@Column(name = "EMAIL_FUNCIONARIO", nullable = false)
+	@Column(name = "EMAIL_FUNCIONARIO")
 	private String email;
 	
-	@Column(name = "CARGO_FUNCIONARIO", nullable = false)
+	@Column(name = "CARGO_FUNCIONARIO")
 	private String cargo;
 	
-	@Column(name = "SALARIO_FUNCIONARIO", nullable = false)
+	@Column(name = "SALARIO_FUNCIONARIO")
 	private BigDecimal salario;
 	
-	@Column(name = "CARGA_HORARIA_FUNCIONARIO", nullable = false)
+	@Column(name = "CARGA_HORARIA_FUNCIONARIO")
 	private Double cargaHoraria;
 
 	public Integer getId() {

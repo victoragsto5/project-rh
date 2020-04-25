@@ -1,16 +1,11 @@
 package com.dpaula.rh.service;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.when;
-import java.math.BigDecimal;
-import java.util.Date;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.mock.mockito.SpyBean;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import com.dpaula.rh.model.entity.Funcionario;
+
 import com.dpaula.rh.model.repository.FuncionarioRepository;
 import com.dpaula.rh.service.impl.FuncionarioServiceImpl;
 
@@ -24,28 +19,26 @@ public class FuncionarioServiceTest {
 	@MockBean
 	FuncionarioRepository repository;
 	
-	@Test
-	public void saveTest() {
-		
-		Funcionario funcionario1 = new Funcionario();
-		
-		funcionario1.setNome("João Teste");
-		funcionario1.setCpf("000000000000191");
-		funcionario1.setRg("1213131231457");
-		funcionario1.setDataNascimento(new Date());
-		funcionario1.setCargo("Comercial Teste");
-		funcionario1.setSalario(new BigDecimal(3000));
-		funcionario1.setCargaHoraria(new Double(160));
-		
-		when(repository.save(funcionario1)).thenReturn(funcionario1);
-		
-		//execucao
-		Funcionario funcionario2 = service.save(funcionario1);
-		
-		//verificação
-		assertThat( funcionario2.getId() ).isEqualTo(funcionario1.getId());
-		assertThat(funcionario2.getNome()).isEqualTo(funcionario2.getNome());
-	}
+//	@Test
+//	public void saveTest() {
+//		
+//		Funcionario funcionario1 = new Funcionario();
+//		
+//		funcionario1.setNome("João Teste");
+//		funcionario1.setCpf("000000000000191");
+//		funcionario1.setRg("1213131231457");
+//		funcionario1.setDataNascimento(new Date());
+//		funcionario1.setCargo("Comercial Teste");
+//		funcionario1.setSalario(new BigDecimal(3000));
+//		funcionario1.setCargaHoraria(new Double(160));
+//		
+//		when(repository.save(funcionario1)).thenReturn(funcionario1);
+//		
+//		Funcionario funcionario2 = service.save(funcionario1);
+//		
+//		assertThat( funcionario2.getId() ).isEqualTo(funcionario1.getId());
+//		assertThat(funcionario2.getNome()).isEqualTo(funcionario2.getNome());
+//	}
 	
 //	@Test
 //	public void naoDeveSalvarUmLancamentoQuandoHouverErroDeValidacao() {

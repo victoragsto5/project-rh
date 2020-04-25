@@ -73,15 +73,15 @@ public class FuncionarioServiceImpl implements FuncionarioService {
 		
 		FuncionarioDTO dto = new FuncionarioDTO();
 		
-		funcionario.setId(funcionario.getId());
-		funcionario.setNome(funcionario.getNome());
-		funcionario.setCpf(funcionario.getCpf());
-		funcionario.setRg(funcionario.getRg());
-		funcionario.setDataNascimento(funcionario.getDataNascimento());
-		funcionario.setEmail(funcionario.getEmail());
-		funcionario.setCargo(funcionario.getCargo());
-		funcionario.setSalario(funcionario.getSalario());
-		funcionario.setCargaHoraria(funcionario.getCargaHoraria());
+		dto.setId(funcionario.getId());
+		dto.setNome(funcionario.getNome());
+		dto.setCpf(funcionario.getCpf());
+		dto.setRg(funcionario.getRg());
+		dto.setDataNascimento(funcionario.getDataNascimento());
+		dto.setEmail(funcionario.getEmail());
+		dto.setCargo(funcionario.getCargo());
+		dto.setSalario(funcionario.getSalario());
+		dto.setCargaHoraria(funcionario.getCargaHoraria());
 		
 		return dto;
 	}

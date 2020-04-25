@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.dpaula.rh.api.dto.FuncionarioDTO;
 import com.dpaula.rh.exception.RegraNegocioException;
 import com.dpaula.rh.service.FuncionarioService;
@@ -19,6 +20,11 @@ public class FuncionarioResource {
 
 	@Autowired
 	private FuncionarioService service;
+	
+//	@GetMapping
+//	public String index() {
+//		return "Funcionario Resource !!";
+//	}
 	
 	@GetMapping
 	public ResponseEntity buscar(
@@ -33,11 +39,13 @@ public class FuncionarioResource {
 		
 		try {
 			FuncionarioDTO result = service.save(dto);
-			return new ResponseEntity(dto, HttpStatus.CREATED);
+			return new ResponseEntity(result, HttpStatus.CREATED);
 			
 		}catch (RegraNegocioException e) {
 			return ResponseEntity.badRequest().body(e.getMessage());
 		}
 	}
+	
+	
 	
 }
