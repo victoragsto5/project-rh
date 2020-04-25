@@ -2,17 +2,22 @@ package com.dpaula.rh.service;
 
 import java.util.List;
 
+import com.dpaula.rh.api.dto.FuncionarioDTO;
 import com.dpaula.rh.model.entity.Funcionario;
 
 public interface FuncionarioService {
 	
-	public Funcionario save(Funcionario funcionario);
+	public FuncionarioDTO save(FuncionarioDTO dto);
 	
-	public Funcionario update(Funcionario funcionario);
+	public FuncionarioDTO find(FuncionarioDTO dto);
+
+	public FuncionarioDTO find(Integer id);
 	
-	public Funcionario find(Funcionario funcionario);
+	public void delete(FuncionarioDTO dto);
 	
-	public void delete(Funcionario funcionario);
+	public List<FuncionarioDTO> list(); 
 	
-	public List<Funcionario> list(); 
+	public Funcionario converter(FuncionarioDTO dto);
+
+	public FuncionarioDTO converter(Funcionario funcionario);
 }

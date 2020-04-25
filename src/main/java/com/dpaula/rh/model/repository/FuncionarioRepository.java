@@ -6,5 +6,7 @@ import com.dpaula.rh.model.entity.Funcionario;
 
 public interface FuncionarioRepository extends JpaRepository<Funcionario, Integer>{
 	
+	public Funcionario findByNome(String nome);
+	
 
 }

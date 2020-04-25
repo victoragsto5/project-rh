@@ -1,16 +1,15 @@
 package com.dpaula.rh.service.impl;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import com.dpaula.rh.api.dto.FuncionarioDTO;
 import com.dpaula.rh.model.entity.Funcionario;
 import com.dpaula.rh.model.repository.FuncionarioRepository;
 import com.dpaula.rh.service.FuncionarioService;
 
 @Service
-public class FuncionarioServiceImpl implements FuncionarioService{
+public class FuncionarioServiceImpl implements FuncionarioService {
 	
 	@Autowired
 	private FuncionarioRepository repository;
@@ -21,33 +20,70 @@ public class FuncionarioServiceImpl implements FuncionarioService{
 	}
 	
 	@Override
-	public Funcionario save(Funcionario funcionario) {
+	public FuncionarioDTO save(FuncionarioDTO dto) {
+		Funcionario funcionario = this.converter(dto);
+		funcionario = repository.save(funcionario);
 		
-		return this.repository.save(funcionario);
+		return this.converter(funcionario);
 	}
 
 	@Override
-	public Funcionario update(Funcionario funcionario) {
-		
-		return this.repository.save(funcionario);
-	}
-
-	@Override
-	public Funcionario find(Funcionario funcionario) {
+	public FuncionarioDTO find(FuncionarioDTO dto) {
 		
 		return null;
 	}
-
-	@Override
-	public void delete(Funcionario funcionario) {
-		
-		 this.repository.delete(funcionario);
+	
+	public FuncionarioDTO find(Integer id) {
+		Funcionario funcionario = repository.findById(id).orElse(null);
+		return this.converter(funcionario);
 	}
 
 	@Override
-	public List<Funcionario> list() {
+	public void delete(FuncionarioDTO dto) {
+		Funcionario funcionario = this.converter(dto);
+		this.repository.delete(funcionario);
+	}
+
+	@Override
+	public List<FuncionarioDTO> list() {
 		
 		return null;
+	}
+	
+	@Override
+	public Funcionario converter(FuncionarioDTO dto) {
+		
+		Funcionario funcionario = new Funcionario();
+		
+		funcionario.setId(dto.getId());
+		funcionario.setNome(dto.getNome());
+		funcionario.setCpf(dto.getCpf());
+		funcionario.setRg(dto.getRg());
+		funcionario.setDataNascimento(dto.getDataNascimento());
+		funcionario.setEmail(dto.getEmail());
+		funcionario.setCargo(dto.getCargo());
+		funcionario.setSalario(dto.getSalario());
+		funcionario.setCargaHoraria(dto.getCargaHoraria());
+		
+		return funcionario;
+	}
+	
+	@Override
+	public FuncionarioDTO converter(Funcionario funcionario) {
+		
+		FuncionarioDTO dto = new FuncionarioDTO();
+		
+		funcionario.setId(funcionario.getId());
+		funcionario.setNome(funcionario.getNome());
+		funcionario.setCpf(funcionario.getCpf());
+		funcionario.setRg(funcionario.getRg());
+		funcionario.setDataNascimento(funcionario.getDataNascimento());
+		funcionario.setEmail(funcionario.getEmail());
+		funcionario.setCargo(funcionario.getCargo());
+		funcionario.setSalario(funcionario.getSalario());
+		funcionario.setCargaHoraria(funcionario.getCargaHoraria());
+		
+		return dto;
 	}
 	
 

@@ -1,49 +1,20 @@
-package com.dpaula.rh.model.entity;
+package com.dpaula.rh.api.dto;
 
 import java.math.BigDecimal;
 import java.util.Date;
 
-import javax.persistence.Column; 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+public class FuncionarioDTO {
 
-
-@Entity
-@Table(name = "FUNCIONARIO")
-public class Funcionario {
-	
-	@Id
-	@Column(name = "ID_FUNCIONARIO", nullable = false)
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
-	@Column(name = "NOME_FUNCIONARIO", nullable = false)
 	private String nome;
-	
-	@Column(name = "CPF_FUNCIONARIO", nullable = false)
 	private String cpf;
-	
-	@Column(name = "RG_FUNCIONARIO", nullable = false)
 	private String rg;
-	
-	@Column(name = "DATA_NASCIMENTO_FUNCIONARIO", nullable = false)
 	private Date dataNascimento;
-	
-	@Column(name = "EMAIL_FUNCIONARIO", nullable = false)
 	private String email;
-	
-	@Column(name = "CARGO_FUNCIONARIO", nullable = false)
 	private String cargo;
-	
-	@Column(name = "SALARIO_FUNCIONARIO", nullable = false)
 	private BigDecimal salario;
-	
-	@Column(name = "CARGA_HORARIA_FUNCIONARIO", nullable = false)
 	private Double cargaHoraria;
-
+	
 	public Integer getId() {
 		return id;
 	}
@@ -115,5 +86,7 @@ public class Funcionario {
 	public void setCargaHoraria(Double cargaHoraria) {
 		this.cargaHoraria = cargaHoraria;
 	}
+
+
 
 }
